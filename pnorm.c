@@ -6,10 +6,10 @@
 #include <stdio.h>
 #include <errno.h>
 
-#define MIN_SERIES_TERMS 15
+#define MIN_SERIES_TERMS 14
 #define INVERSE_SQRT_2PI 0.3989422804
-#define HIGHEST_Z 8
-#define LOWEST_Z -8
+#define HIGHEST_Z 3.1674  //Exterimentally determined to be the bounds.
+#define LOWEST_Z -3.1674
 
 double zScore(double x, double mu, double sigma) {
 	return ((x-mu)/sigma);
@@ -30,9 +30,6 @@ double normCDF(double z) {
 		output = 0.5;
 	} else {
 		int total_terms = MIN_SERIES_TERMS;
-		if (z*5 > MIN_SERIES_TERMS) {
-			total_terms = z*5;
-		}
 		//For loop used to compute SUM((Z^(2n+1)(-1)^n)/((2n+1)(2^n)(n!))) in linear time
 		for(n=1; n <= total_terms; n++) {
 			current_numerator = current_numerator*z*z*(-1);
@@ -103,6 +100,11 @@ int main(int argc, char** argv) {
 		double lowZ = zScore(lowX, mu, sigma);
 		double highZ = zScore(highX, mu, sigma);
 		output = normCDF(highZ) - normCDF(lowZ);
+		if (output > 1.0) {
+			output = 1.0;
+		} else if (output < 0.0) {
+			output = 0.0;
+		}
 	}
 	//Output result
 	printf("P(%f < X < %f) = %f\n", lowX, highX, output);
