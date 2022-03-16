@@ -12,7 +12,7 @@ Once the program is compiled, it can be executed with the following command:
 
 > ./pnorm [low] [high] [mu, default=0] [sigma, default=1]
 
-where "low" and "high" denote the values to calculate the probability between, mu denotes the mean, and sigma denotes the standard deviation. The mu and sigma parameters are **optional**, and they default to 0 and 1 respectively, i.e. the standard normal curve. 
+where "low" and "high" denote the values to calculate the probability between, "mu" denotes the mean, and "sigma" denotes the standard deviation. The mu and sigma parameters are **optional**, and they default to 0 and 1 respectively, i.e. the standard normal curve. 
 
 ## EXAMPLES:
 
@@ -24,11 +24,11 @@ This will calculate P(0 < Z < 1), which works out to 0.341345
 
 > ./pnorm 4 6 4 2
 
-This will calculate P(4 < X < 6), where *mu*=4 and *sigma*=6. This also works out to 0.341345.
+This will calculate P(4 < X < 6), where *mu*=4 and *sigma*=2. This also works out to 0.341345.
 
 > ./pnorm -2 1 1 2
 
-This will calculate P(-2 < X < 1), where *mu*=-2 and *sigma*=2. This works out to 0.433193.
+This will calculate P(-2 < X < 1), where *mu*=1 and *sigma*=2. This works out to 0.433193.
 
 > ./pnorm 5 10
 
