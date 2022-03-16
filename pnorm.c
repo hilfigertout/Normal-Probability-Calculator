@@ -6,10 +6,20 @@
 #include <stdio.h>
 #include <errno.h>
 
+#define SERIES_TERMS 10
+#define INVERSE_SQRT_2PI 0.3989422804
+
 double zScore(double x, double mu, double sigma) {
 	return ((x-mu)/sigma);
 }
 
+
+double normCDF(double z) {
+	int i = 0;
+	double current_num = z;
+	int factorial_term = 1;
+	
+}
 
 double normProb(double z_low, double z_high) {
 	
@@ -61,17 +71,18 @@ int main(int argc, char** argv) {
 		printf("ERROR: low_value must be less than or equal to high_value.\n");
 		exit(1);
 	}
-//TODO - test all of the above and remove the following code after:
 
+//	printf("low_value = %f\n", lowX);
+//	printf("high_value = %f\n", highX);
+//	printf("mu = %f\n", mu);
+//	printf("sigma = %f\n", sigma);
 
-	printf("low_value = %f\n", lowX);
-	printf("high_value = %f\n", highX);
-	printf("mu = %f\n", mu);
-	printf("sigma = %f\n", sigma);
-
-//Remove to here
 	
 	if (lowX == highX) {
 		return 0.0;
+	} else {
+		lowZ = zScore(lowX, mu, sigma);
+		highZ = zScore(highX, mu, sigma);
+		return normProb(lowZ, highZ);
 	}
 }
