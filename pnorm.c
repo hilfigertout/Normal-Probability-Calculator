@@ -8,7 +8,7 @@
 
 #define MIN_SERIES_TERMS 14
 #define INVERSE_SQRT_2PI 0.3989422804
-#define HIGHEST_Z 3.1674  //Exterimentally determined to be the bounds.
+#define HIGHEST_Z 3.1674  //Experimentally determined to be the bounds.
 #define LOWEST_Z -3.1674
 
 double zScore(double x, double mu, double sigma) {
