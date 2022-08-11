@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
 	char* endptr = NULL; //This is for error checking
 	if (argc < 3) {
 		printf("ERROR: not enough arguments.\n");
-		printf("Correct usage: pnorm [low_value], [high_value], [mu, default=0], [sigma, default=1]\n");
+		printf("Correct usage: pnorm [low_value] [high_value] [mu, default=0] [sigma, default=1]\n");
 		exit(1);
 	}
 	double mu = 0;
